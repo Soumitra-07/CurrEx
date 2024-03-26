@@ -4,11 +4,10 @@ import { useEffect, useState } from "react";
 function useCurrencyinfo(currency) {
     const [data, setdata] = useState({})
     useEffect(() => {
-        let url = `https://cdn.jsdelivr.net/gh/fawazahmed0/currency-api@1/latest/currencies/${currency}.json`
-        fetch(url).then((res) => { res.json }).then((res) => setdata(res))
+
+        fetch(`https://cdn.jsdelivr.net/npm/@fawazahmed0/currency-api@latest/1/currencies/${currency}.json`).then((res) => res.json()).then((res) => setdata(res[currency]))
     }, [currency])
-    return {
-        data
-    }
+    console.log(data);
+    return data
 }
 export default useCurrencyinfo;
